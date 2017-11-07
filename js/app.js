@@ -45,11 +45,11 @@
      function getAboutInfo() {
          var myFacebookToken = $("#token").val();
 
-         //function getFacebookInfo(){
+         
          $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,email,cover&access_token=' + myFacebookToken, {
 
              success: function(response) {
-                 console.log(response);
+                 //console.log(response);
                  //console.log(typeof(response));
                  $("#myEmail").text(response.email);
                  //console.log(response.email);
@@ -181,8 +181,8 @@
                      $("#postt").show();
                      $(".pp").show();
                      // console.log(showValue);
-                     console.log(showValue.story)
-
+                     //console.log(showValue.story)
+                        //check for post type
                      if (showValue.type == "photo")
                          //console.log(showValue)
                          //console.log(showValue.type)
@@ -192,7 +192,7 @@
                          $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted on:" + showValue.created_time + "</h6>" + "<video controls> <source  src=" + "" + showValue.source + " " + "type= " + "video/mp4" + "></video>")
 
                      else if (showValue.type == "status") {
-                         console.log(showValue.videos);
+                        // console.log(showValue.videos);
                          $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted on:" + showValue.created_time + "\n</h6>")
                      }
 
@@ -221,7 +221,7 @@
      $("#post").on('click', postValues)
      //Hiding and showing Ui
 
-
+     //function of signout button
      function signout() {
 
          myFacebookToken = null
@@ -250,6 +250,6 @@
          $("#postt").hide();
          $(".pp").hide();
      }
-
+     //sign out button on click
      $("#sign_out").on('click', signout)
  }); // end doc ready
