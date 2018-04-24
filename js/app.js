@@ -126,7 +126,7 @@
                  $("#About").hide(200);
                  $(".form-group").hide(500);
 
-                 $("#sign_out").show(1000);
+                 $("#sign_out").show(200);
                  $("#postt").hide();
                  $(".pp").hide();
              }, //end of success
