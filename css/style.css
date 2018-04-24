@@ -1,0 +1,45 @@
+         #background{
+           background-color: #4267B2;
+           padding-top: 2px;    
+         }
+         #twofeeds{
+           border-color: black;
+           background-color: black;
+           text-align: center;
+         }
+         .header{
+          padding: 2%;
+         }
+         .button {
+           background-color: #008CBA; /* Green */
+           border: none;
+           color: white;
+           padding: 10px 15px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 16px;
+           align-self: center;
+         }
+         li{
+           font-size: 2em;
+           color:#021a3f;
+         }
+         #twofeeds2{
+           font-family: 'Asap Condensed', sans-serif;
+           font-size: medium;
+           text-align: center;
+           font-size: 0.67em;   
+         }
+         .img-responsive{
+          margin: 0 auto;
+         }
+         video{
+          margin:0 auto;
+          width: 100%;
+         }
+         .heading{
+           font-family: 'Asap Condensed', sans-serif;
+           text-align: center;
+         }
+
