@@ -121,9 +121,9 @@
                  $(".feed4").show(500);
                  $(".experience").show("scale");
                  $(".feed5").show(500);
-                 $("#post").show(1000);
+                 $("#post").show(200);
                  $("#basic").show(500);
-                 $("#About").hide(1000);
+                 $("#About").hide(200);
                  $(".form-group").hide(500);
 
                  $("#sign_out").show(1000);
