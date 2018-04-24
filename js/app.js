@@ -45,7 +45,7 @@
      function getAboutInfo() {
          var myFacebookToken = $("#token").val();
 
-         
+         //myFacebookToken
          $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + myFacebookToken, {
 
              success: function(response) {
