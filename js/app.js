@@ -1,13 +1,11 @@
  // main document ready function to check if dom is loaded fully or not
- //var myFacebookToken = $("#token").val();
+ //let myFacebookToken = $("#token").val();
  //myFacebookToken='EAACEdEose0cBAM1CiR4WG5IU3DzhaQKi2UmcyNZCVBZAkHBZBhp0lcyabIakm7t0BJJx7gQeHZCIyTZBNXtAtZCXR2QIXDjlZBCwdo53vv0v7K5dZCt8kzWcs5YqDYO2B8iFwOTVZB9bOi0lPgOGnHEZASYpKA59UHMlKG4gT5TTI4Om4zcEkFHWVBGAnmCIQQyMj3TewOLrXgpgZDZD'
- $(window).load(function() {
+ $(window).load(()=> {
      $('.preloader').delay(100).fadeOut("slow"); // set duration in brackets    
  });
- $(document).ready(function() {
+ $(document).ready(() => {
 
-     //Backgroung images transition
-     jQuery(document).ready(function() {
          $('body').backstretch([
              "images/tm-bg-slide-1.jpg",
              "images/tm-bg-slide-2.jpg"
@@ -15,7 +13,6 @@
              duration: 3200,
              fade: 1300
          });
-     });
 
 
      $("#postt").hide();
@@ -40,15 +37,15 @@
 
      $("#sign_out").hide();
 
-     // var myFacebookToken="";
+     // let myFacebookToken="";
 
-     function getAboutInfo() {
-         var myFacebookToken = $("#token").val();
+     let getAboutInfo = () => {
+         let myFacebookToken = $("#token").val();
 
          //myFacebookToken
-         $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + myFacebookToken, {
+         $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + $("#token").val(), {
 
-             success: function(response) {
+             success:(response) => {
                  console.log(response);
                  //console.log(typeof(response));
                  $("#myEmail").text(response.email);
@@ -68,38 +65,38 @@
                  $("#Welcome").hide(500);
                  $("#howWorks").hide(500);
                  //for language 
-                 var languages = response.languages;
-                 var myLanguage = $.map(languages, function(index) {
+                 let languages = response.languages;
+                 let myLanguage = $.map(languages,(index) => {
                      return index.name;
                  });
                  $("#myLanguage").text(myLanguage);
 
                  // for work
-                 var work = response.work;
-                 var myWork = $.map(work, function(index) {
+                 let work = response.work;
+                 let myWork = $.map(work, (index) => {
                      return index.employer.name;
                  });
                  $("#myWork").text(myWork);
 
                  //for education
-                 var favoriteAthletes = response.favorite_athletes;
-                 var myfavoriteAthletes = $.map(favoriteAthletes, function(index) {
+                 let favoriteAthletes = response.favorite_athletes;
+                 let myfavoriteAthletes = $.map(favoriteAthletes, (index) => {
                      return index.name;
                  });
                  $("#favoriteAthletes").text(myfavoriteAthletes);
 
                  // for family
-                 var family = response.friends.data;
-                 var myFamily = $.map(family, function(index) {
+                 let family = response.friends.data;
+                 let myFamily = $.map(family, (index) => {
                      return index.name;
                  });
 
                  $("#friends").text(myfavoriteAthletes);
 
                  // for familyfavorite_teams
-                 var favoriteTeams = response.favorite_teams;
-                 console.log(favoriteTeams)
-                 var myfavoriteTeams = $.map(favoriteTeams, function(index) {
+                 let favoriteTeams = response.favorite_teams;
+                 //console.log(favoriteTeams)
+                 let myfavoriteTeams = $.map(favoriteTeams, (index) => {
                      return index.name;
                  });
 
@@ -132,7 +129,7 @@
              }, //end of success
 
              //error handling
-             error: function(req, status, error) {
+             error: (req, status, error) => {
                 //alert("error")
                 console.log('Error occured', status, error);
                 alert("Just Refresh Again yet not solved then There's Something Wrong With Your TOKEN. Either not inserted or it is expired.");
@@ -140,11 +137,11 @@
              },
              //Loader
              timeout: 4000,
-             beforeSend: function() {
+             beforeSend: () =>  {
                  // move();
                  $('.preloader').show();
              },
-             complete: function() {
+             complete: () => {
                  $('.preloader').hide();
 
              }
@@ -162,18 +159,18 @@
      $("#About").on('click', getAboutInfo)
 
 
-     function postValues() {
-         var myFacebookToken = $("#token").val();
+     let postValues = () => {
+         let myFacebookToken = $("#token").val();
         //myFacebookToken="EAACEdEose0cBACK62UZCgUy8EhoQL4aRDQGYpycDZCV06alIVKkhXhQi1vEzxhJ0hKkfGBiBbtxgz1TM1no9tAX4KzLAs2pMHUQbZAztI4i7dZCy2SEAP8msSUOzl6Detf71iiByaCQStdhUcZAadjlBqM2smpwPg3eb7vGolrktJpLG9KP7Fl6LsoXwZAJiv1Pd8plZAeIoQZDZD";
          //$(".form-group").show();
          //Ajax for gettting Feed
-         $.ajax("https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source},name,picture&access_token=" + myFacebookToken, {
-             success: function(response) {
-                 //var counter = 0
+         $.ajax("https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source},name,picture&access_token=" + $("#token").val(), {
+             success: (response) => {
+                 //let counter = 0
 
                  //console.log(counter);
-                 var o = 0
-                 $.each(response.posts.data, function(i, showValue) {
+                 let o = 0
+                 $.each(response.posts.data, (i, showValue) => {
                      $(".form-group").hide("scale");
                      $("#mainPic").show(500);
                      $(".basic").hide("scale");
@@ -194,6 +191,7 @@
                      $("#post").hide(100);
                      $("#Welcome").hide(500);
                      $("#postt").show(200);
+                     $("#sign_out").show(200);
                      $(".pp").show(500);
                      $("#howWorks").hide(500);
                      // console.log(showValue);
@@ -216,18 +214,18 @@
                  }); //end of each loop
              }, //end success function
              //error handling
-             error: function(req, status, error) {
+             error: (req, status, error) => {
                 console.log('Error occured', status, error);
                 alert("Just Refresh Again yet not solved then There's Something Wrong With Your TOKEN. Either not inserted or it is expired.");
 
              },
              //Loader
              timeout: 4000,
-             beforeSend: function() {
+             beforeSend: () => {
                  // move();
                  $('.preloader').show();
              },
-             complete: function() {
+             complete: () => {
                  $('.preloader').hide();
 
              }
@@ -236,10 +234,11 @@
      }; //post button
 
      $("#post").on('click', postValues)
+    // console.log(myFacebookToken)
      //Hiding and showing Ui
 
      //function of signout button
-     function signout() {
+     let signout = () => {
 
          myFacebookToken = null
          $(".form-group").show("scale");
