@@ -29,6 +29,9 @@ input[type='text'], select, textarea {
            font-size: 2em;
            color:#021a3f;
          }
+         h6{
+          color: white;
+         }
          #twofeeds2{
            font-family: 'Asap Condensed', sans-serif;
            font-size: medium;
@@ -43,7 +46,7 @@ input[type='text'], select, textarea {
           width: 100%;
           border-style: dotted;
          }
-   
+
          .heading{
            font-family: 'Asap Condensed', sans-serif;
            text-align: center;

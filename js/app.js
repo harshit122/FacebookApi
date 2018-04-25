@@ -40,10 +40,12 @@
      // let myFacebookToken="";
 
      let getAboutInfo = () => {
-         let myFacebookToken = $("#token").val();
 
+         let myFacebookToken = $("#token").val();
+        //localStorage.setItem("lastname", myFacebookToken);
+        //console.log(localStorage.getItem("lastname"))
          //myFacebookToken
-         $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + $("#token").val(), {
+         $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + myFacebookToken, {
 
              success:(response) => {
                  console.log(response);
@@ -164,11 +166,11 @@
         //myFacebookToken="EAACEdEose0cBACK62UZCgUy8EhoQL4aRDQGYpycDZCV06alIVKkhXhQi1vEzxhJ0hKkfGBiBbtxgz1TM1no9tAX4KzLAs2pMHUQbZAztI4i7dZCy2SEAP8msSUOzl6Detf71iiByaCQStdhUcZAadjlBqM2smpwPg3eb7vGolrktJpLG9KP7Fl6LsoXwZAJiv1Pd8plZAeIoQZDZD";
          //$(".form-group").show();
          //Ajax for gettting Feed
-         $.ajax("https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source},name,picture&access_token=" + $("#token").val(), {
+         $.ajax("https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source},name,picture&access_token=" + myFacebookToken, {
              success: (response) => {
                  //let counter = 0
 
-                 //console.log(counter);
+                 console.log(response);
                  let o = 0
                  $.each(response.posts.data, (i, showValue) => {
                      $(".form-group").hide("scale");
@@ -187,7 +189,7 @@
                      $(".feed5").show(500);
                      //$("#post").show();
                      $("#basic").show(500);
-                     $("#About").show(700);
+                     $("#About").show(200);
                      $("#post").hide(100);
                      $("#Welcome").hide(500);
                      $("#postt").show(200);
@@ -200,14 +202,14 @@
                      if (showValue.type == "photo")
                          //console.log(showValue)
                          //console.log(showValue.type)
-                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted on:" + showValue.created_time + "\n</h6>" + "<img src=" + showValue.full_picture + " " + "class=" + " img-responsive " + ">");
+                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted a photo on : " + showValue.created_time + "\n</h6>" + "<img src=" + showValue.full_picture + " " + "class=" + " img-responsive " + ">");
 
                      else if (showValue.type == "video")
-                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted on:" + showValue.created_time + "</h6>" + "<video controls> <source  src=" + "" + showValue.source + " " + "type= " + "video/mp4" + " " + "class =" + " video_reposive " + " ></video>")
+                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted a video on : " + showValue.created_time + "</h6>" + "<video controls> <source  src=" + "" + showValue.source + " " + "type= " + "video/mp4" + " " + "class =" + " video_reposive " + " ></video>")
 
                      else if (showValue.type == "status") {
-                        // console.log(showValue.videos);
-                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted on:" + showValue.created_time + "\n</h6>")
+                        console.log(showValue);
+                         $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted a status on : " + showValue.created_time + "\n</h6>" + "<h4>Status : " + showValue.message + "\n</h4>")
                      }
 
 
