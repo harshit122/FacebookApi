@@ -1,22 +1,19 @@
  // main document ready function to check if dom is loaded fully or not
- //let myFacebookToken = $("#token").val();
- //myFacebookToken='EAACEdEose0cBAM1CiR4WG5IU3DzhaQKi2UmcyNZCVBZAkHBZBhp0lcyabIakm7t0BJJx7gQeHZCIyTZBNXtAtZCXR2QIXDjlZBCwdo53vv0v7K5dZCt8kzWcs5YqDYO2B8iFwOTVZB9bOi0lPgOGnHEZASYpKA59UHMlKG4gT5TTI4Om4zcEkFHWVBGAnmCIQQyMj3TewOLrXgpgZDZD'
- $(window).load(()=> {
+ 
+ $(window).load(() => {
      $('.preloader').delay(100).fadeOut("slow"); // set duration in brackets    
  });
  $(document).ready(() => {
 
-         $('body').backstretch([
-             "images/tm-bg-slide-1.jpg",
-             "images/tm-bg-slide-2.jpg"
-         ], {
-             duration: 3200,
-             fade: 1300
-         });
-
+     $('body').backstretch([
+         "images/tm-bg-slide-1.jpg",
+         "images/tm-bg-slide-2.jpg"
+     ], {
+         duration: 3200,
+         fade: 1300
+     });
 
      $("#postt").hide();
-     // $(".form-group").hide("scale");
      $("#mainPic").hide();
      $(".basic").hide("scale");
      $(".feed6").hide();
@@ -34,30 +31,26 @@
      $("#basic").hide();
      $("#post").hide();
      $("#About").hide();
-
      $("#sign_out").hide();
-
-     // let myFacebookToken="";
 
      let getAboutInfo = () => {
 
          let myFacebookToken = $("#token").val();
-            console.log(myFacebookToken)
-             if (myFacebookToken === null || myFacebookToken == " " || myFacebookToken === undefined || myFacebookToken.length <=0 ){
+         console.log(myFacebookToken)
 
-                alert("Facebook Token Can't be left blank");
-                console.log("Facebook Token Can't be left blank")}
-            else
-            //localStorage.setItem("lastname", myFacebookToken);
-            //console.log(localStorage.getItem("lastname"))
+         if (myFacebookToken === null || myFacebookToken == " " || myFacebookToken === undefined || myFacebookToken.length <= 0) {
+
+             alert("Facebook Token Can't be left blank");
+             console.log("Facebook Token Can't be left blank")
+
+         } else
+
              //myFacebookToken
              $.ajax('https://graph.facebook.com/me?fields=picture.width(250).height(250),id,friends,name,first_name,last_name,birthday,about,hometown,languages,gender,education,work,relationship_status,quotes,family,website,favorite_athletes,favorite_teams,email,cover&access_token=' + myFacebookToken, {
 
-                 success:(response) => {
+                 success: (response) => {
                      console.log(response);
-                     //console.log(typeof(response));
                      $("#myEmail").text(response.email);
-                     //console.log(response.email);
                      $("#myProfileId").html('<a target="blank" href="https://facebook.com/' + response.id + '">https://facebook.com/' + response.id + '</a>');
                      $("#myHomeTown").text(response.hometown.name);
                      $(".myProfilePic").attr("src", "" + response.picture.data.url + "");
@@ -74,7 +67,7 @@
                      $("#howWorks").hide(500);
                      //for language 
                      let languages = response.languages;
-                     let myLanguage = $.map(languages,(index) => {
+                     let myLanguage = $.map(languages, (index) => {
                          return index.name;
                      });
                      $("#myLanguage").text(myLanguage);
@@ -109,10 +102,7 @@
                      });
 
                      $("#favoriteTeams").text(myfavoriteTeams);
-
-
                      $("#myFamily").text(myFamily);
-
                      $("#mainPic").show(500);
                      $(".basic").show("scale");
                      $(".feed6").show(500);
@@ -130,7 +120,6 @@
                      $("#basic").show(500);
                      $("#About").hide(200);
                      $(".form-group").hide(500);
-
                      $("#sign_out").show(200);
                      $("#postt").hide();
                      $(".pp").hide();
@@ -138,14 +127,14 @@
 
                  //error handling
                  error: (req, status, error) => {
-                    //alert("error")
-                    alert("Just Refresh Again yet not solved then there is a problem with your facebook token . It is not correct or got expired.");
+                     //alert("error")
+                     alert("Just Refresh Again yet not solved then there is a problem with your facebook token . It is not correct or got expired.");
 
-                    console.log('Error occured', status, error);
+                     console.log('Error occured', status, error);
                  },
                  //Loader
                  timeout: 4000,
-                 beforeSend: () =>  {
+                 beforeSend: () => {
                      // move();
                      $('.preloader').show();
                  },
@@ -153,25 +142,18 @@
                      $('.preloader').hide();
 
                  }
-
                  //end argument list 
-
 
              }); // end ajax call 
 
-
-
-
      }; //end of info button
-     $("#info").on('click', getAboutInfo)
 
+     $("#info").on('click', getAboutInfo)
      $("#About").on('click', getAboutInfo)
 
-
      let postValues = () => {
+
          let myFacebookToken = $("#token").val();
-        //myFacebookToken="EAACEdEose0cBACK62UZCgUy8EhoQL4aRDQGYpycDZCV06alIVKkhXhQi1vEzxhJ0hKkfGBiBbtxgz1TM1no9tAX4KzLAs2pMHUQbZAztI4i7dZCy2SEAP8msSUOzl6Detf71iiByaCQStdhUcZAadjlBqM2smpwPg3eb7vGolrktJpLG9KP7Fl6LsoXwZAJiv1Pd8plZAeIoQZDZD";
-         //$(".form-group").show();
          //Ajax for gettting Feed
          $.ajax("https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source},name,picture&access_token=" + myFacebookToken, {
              success: (response) => {
@@ -194,18 +176,14 @@
                      $(".feed4").show(500);
                      $(".experience").hide("scale");
                      $(".feed5").show(500);
-                     //$("#post").show();
                      $("#basic").show(500);
                      $("#About").show(200);
                      $("#post").hide(100);
                      $("#Welcome").hide(500);
                      $("#postt").show(200);
-                     $("#sign_out").show(200);
                      $(".pp").show(500);
                      $("#howWorks").hide(500);
-                     // console.log(showValue);
-                     //console.log(showValue.story)
-                        //check for post type
+                     //check for post type
                      if (showValue.type == "photo")
                          //console.log(showValue)
                          //console.log(showValue.type)
@@ -215,18 +193,16 @@
                          $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted a video on : " + showValue.created_time + "</h6>" + "<video controls> <source  src=" + "" + showValue.source + " " + "type= " + "video/mp4" + " " + "class =" + " video_reposive " + " ></video>")
 
                      else if (showValue.type == "status") {
-                        console.log(showValue);
+                         console.log(showValue);
                          $(".pp").append("<li> Post:" + showValue.story + "</li>" + "<h6>Posted a status on : " + showValue.created_time + "\n</h6>" + "<h4>Status : " + showValue.message + "\n</h4>")
                      }
-
 
                  }); //end of each loop
              }, //end success function
              //error handling
              error: (req, status, error) => {
-                console.log('Error occured', status, error);
-                alert("Just Refresh Again yet not solved then There's Something Wrong With Your TOKEN, may be it is expired.");
-
+                 console.log('Error occured', status, error);
+                 alert("Just Refresh Again yet not solved then There's Something Wrong With Your TOKEN, may be it is expired.");
              },
              //Loader
              timeout: 4000,
@@ -236,14 +212,12 @@
              },
              complete: () => {
                  $('.preloader').hide();
-
              }
          }); // ajax call
 
      }; //post button
 
      $("#post").on('click', postValues)
-    // console.log(myFacebookToken)
      //Hiding and showing Ui
 
      //function of signout button

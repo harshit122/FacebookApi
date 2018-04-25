@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -11,60 +13,43 @@
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <!--STYLES HERE -->
       <link rel="stylesheet" href="css/style.css">
-
    </head>
    <!-- MODAL Start -->
-<!-- This is a Modal which is triggered on a button click which is on the nav bar -->
-<!-- It tells the steps involved in getting the access token from the facebook developer's page -->
-
-<div class="modal fade text-center" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-         
-         <div class="alert alert-danger" role="alert">
-             Please follow the below steps to get the <b> Facebook Access Token </b>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+   <!-- This is a Modal which is triggered on a button click which is on the nav bar -->
+   <!-- It tells the steps involved in getting the access token from the facebook developer's page -->
+   <div class="modal fade text-center" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <div class="alert alert-danger" role="alert">
+                  Please follow the below steps to get the <b> Facebook Access Token </b>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+            </div>
+            <div class="modal-body">
+               <div class="alert alert-info" role="alert">
+                  <strong>Step 1:</strong> &nbsp; Visit -
+                  <a href="https://developers.facebook.com/tools/explorer/145634995501895/" class="alert-link">Facebook API Explorer</a>.
+               </div>
+               <div class="alert alert-info" role="alert">
+                  <strong>Step 2:</strong> &nbsp; Click on 'Get Token' -&gt; 'Get User Access Token' and select all the checkboxes/fields in the new window. <br> <br>
+                  NOTE: <br> <b><i>You may have to login first through your facebook account to get the 'Access Token'</i></b>
+               </div>
+               <div class="alert alert-info" role="alert">
+                  <strong>Step 3:</strong> &nbsp; Click on 'Get Access Token' in the new window and wait until the page refreshes.
+               </div>
+               <div class="alert alert-info" role="alert">
+                  <strong>Step 4:</strong> &nbsp; Copy the 'Access Token' from the page and paste it here !!!.
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
          </div>
-        
       </div>
-      
-      <div class="modal-body">
-         
-           <div class="alert alert-info" role="alert">
-              <strong>Step 1:</strong> &nbsp; Visit -
-              <a href="https://developers.facebook.com/tools/explorer/145634995501895/" class="alert-link">Facebook API Explorer</a>.
-              
-           </div>
-
-           <div class="alert alert-info" role="alert">
-              <strong>Step 2:</strong> &nbsp; Click on 'Get Token' -&gt; 'Get User Access Token' and select all the checkboxes/fields in the new window. <br> <br>
-              NOTE: <br> <b><i>You may have to login first through your facebook account to get the 'Access Token'</i></b>
-              
-           </div>
-
-           <div class="alert alert-info" role="alert">
-              <strong>Step 3:</strong> &nbsp; Click on 'Get Access Token' in the new window and wait until the page refreshes.
-           
-           </div>
-
-           <div class="alert alert-info" role="alert">
-              <strong>Step 4:</strong> &nbsp; Copy the 'Access Token' from the page and paste it here !!!.
-              
-           </div>
-
-      </div>
-      <div class="modal-footer">
-      
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
-      </div>
-    </div>
-  </div>
-</div>
+   </div>
    <body data-spy="scroll" data-target=".navbar-collapse">
       <!-- preloader section -->
       <div class="preloader">
@@ -72,14 +57,10 @@
             <span class="sk-inner-circle"></span>
          </div>
       </div>
-
       <div class="w3-bar w3-blue fix">
-        
          <button id="About" style= "width: 50%" class="w3-bar-item w3-padding-large w3-button w3-left">About</button>
          <button id="post" style= "width: 50%" class="w3-bar-item w3-button w3-padding-large w3-left">Post</button>
-        
-        <button id="howWorks" style= "width: 100%" class="w3-bar-item w3-button w3-padding-large w3-center" data-toggle="modal" data-target="#exampleModal">How it works?</button>
-         
+         <button id="howWorks" style= "width: 100%" class="w3-bar-item w3-button w3-padding-large w3-center" data-toggle="modal" data-target="#exampleModal">How it works?</button>
          <button id="sign_out" style= "width: 50%" class="w3-bar-item w3-button w3-padding-large w3-right">Sign Out</button>
       </div>
       <!-- header section -->
@@ -92,21 +73,19 @@
             </div>
          </div>
       </div>
-
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 col-sm-12">
-                  <div id="mainPic" class="header">
-                     <img title="Click here for Posts" class="img-responsive img-circle tm-border myProfilePic" alt="profile pic goes here">
-                  </div>
-                  <h1 style="text-align: center;" id = "Welcome" class="tm-title bold shadow">Welcome</h1>
-                  <h1 class="white bold shadow">
-                     <p  style="text-align: center;"><span title="Click here for Basic-info" id="myName"></span></p>
-                  </h1>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 col-sm-12">
+               <div id="mainPic" class="header">
+                  <img title="Click here for Posts" class="img-responsive img-circle tm-border myProfilePic" alt="profile pic goes here">
                </div>
+               <h1 style="text-align: center;" id = "Welcome" class="tm-title bold shadow">Welcome</h1>
+               <h1 class="white bold shadow">
+                  <p  style="text-align: center;"><span title="Click here for Basic-info" id="myName"></span></p>
+               </h1>
             </div>
          </div>
-
+      </div>
       <!-- basic info and work section -->
       <section class="container">
          <div class="row">
@@ -165,19 +144,21 @@
       <div class="row">
       </div>
       <div class="container-fluid">
-        <div class="col s12" id="twofeeds2">
-         <span class="flow-text" >
-         <div class="divider" id="1"></div>
-         <div class="section">
-            <h1 id = "postt"><b>Facebook Feeds<b></h1></span>
+         <div class="col s12" id="twofeeds2">
+            <span class="flow-text" >
+               <div class="divider" id="1"></div>
+               <div class="section">
+                  <h1 id = "postt"><b>Facebook Feeds<b></h1>
+            </span>
             <p class="pp"></p>
+            </div>
          </div>
-</div>
       </div>
       <!-- javascript js -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery.backstretch.min.js"></script>
       <script src="js/app.js"></script>
    </body>
 </html>
+
