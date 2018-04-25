@@ -1,2 +1,2 @@
 # FacebookApi
-Getting familiar with facebook Api
+Getting familiar with facebook Api.
